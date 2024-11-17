@@ -1,41 +1,59 @@
-Projeto de Banco de Dados de E-commerce
-Este projeto é um esquema de banco de dados para um sistema de e-commerce que gerencia clientes, produtos, pedidos, entregas e fornecedores. O objetivo é fornecer uma estrutura clara e eficiente para gerenciar operações de comércio eletrônico, incluindo o processamento de pedidos e a rastreabilidade de entregas.
+📦 Projeto de Banco de Dados para Sistema de E-commerce
+Este repositório contém o esquema de banco de dados para um sistema de e-commerce completo, projetado para gerenciar clientes, produtos, pedidos, entregas e fornecedores de forma eficiente e escalável. Este projeto foi desenvolvido para fornecer uma base sólida para operações de comércio eletrônico, desde o processamento de pedidos até a rastreabilidade de entregas.
 
-Estrutura do Banco de Dados
-O modelo de dados inclui as seguintes principais entidades:
+🗂️ Estrutura do Banco de Dados
+A modelagem do banco de dados inclui as seguintes principais entidades:
 
-1. Cliente
+🧑‍💼 Cliente
+A entidade Cliente armazena informações essenciais de usuários do sistema, podendo ser tanto pessoas físicas quanto jurídicas.
+
 idCliente: Identificador único do cliente.
-Nome: Nome do cliente.
-Endereço: Endereço de entrega do cliente.
-Pagamento: Método de pagamento utilizado pelo cliente.
-2. Pessoa Física e Pessoa Jurídica
-Pessoa Física: Informações adicionais para clientes individuais, incluindo CPF.
-Pessoa Jurídica: Informações adicionais para clientes empresariais, incluindo CNPJ.
-3. Pedido
-idPedido: Identificador único do pedido.
-Compra: Detalhes sobre os produtos comprados.
-Endereço: Endereço de entrega associado ao pedido.
-Status da Entrega: Indica o estado da entrega do pedido.
-Frete: Custo de entrega associado ao pedido.
-4. Entrega
-Entregador_idEntregador: Identificador do entregador responsável.
-Pedido_idPedido: Referência ao pedido correspondente.
-Status de entrega: Estado atual da entrega (ex.: "Pendente", "Em transporte", "Entregue").
-Código de Rastreamento: Código para rastrear a entrega.
-5. Produtos e Estoque
-Produtos: Informações sobre produtos disponíveis para venda, incluindo categoria, descrição e valor.
-Produtos_has_Estoque: Tabela que relaciona produtos ao estoque e quantidade disponível.
-6. Fornecimento
-Fornecedor_idFornecedor: Identificador do fornecedor.
-Produtos_idProdutos: Referência aos produtos fornecidos por um fornecedor específico.
-7. Produto por Pedido
-Pedido_idPedido: Identificador do pedido.
-Produtos_idProdutos: Referência aos produtos incluídos no pedido.
-Quantidade: Quantidade de cada produto no pedido.
-Requisitos de Pagamento
-A forma mais simples de integrar métodos de pagamento neste sistema é adicionar uma coluna MetodoPagamento na tabela Pedido, permitindo registrar o tipo de pagamento (ex.: CartaoCredito, Pix, BoletoBancario).
+Nome: Nome completo do cliente.
+Endereço: Endereço de entrega.
+Pagamento: Tipo de pagamento preferido.
+👥 Pessoa Física & Pessoa Jurídica
+Informações específicas sobre os tipos de clientes:
 
-Tecnologias Utilizadas
-Modelagem: MySQL Workbench para criação do esquema de banco de dados.
-Banco de Dados: MySQL ou outro sistema de banco de dados relacional.
+Pessoa Física: Inclui atributos como CPF.
+Pessoa Jurídica: Inclui atributos como CNPJ e nome empresarial.
+🛒 Pedido
+A entidade Pedido representa as compras realizadas pelos clientes, armazenando detalhes fundamentais para a gestão de pedidos.
+
+idPedido: Identificador único do pedido.
+Compra: Detalhes dos itens comprados.
+Endereço: Endereço de entrega do pedido.
+Status da Entrega: Indica o status da entrega (ex.: "Pendente", "Em transporte", "Entregue").
+Frete: Valor do frete associado ao pedido.
+🚚 Entrega
+A entidade Entrega gerencia o processo de entrega de pedidos e seu rastreamento.
+
+Entregador_idEntregador: Referência ao entregador responsável.
+Pedido_idPedido: Chave estrangeira para o pedido correspondente.
+Status de Entrega: Estado atual da entrega.
+Código de Rastreamento: Código de rastreamento para acompanhamento.
+🏷️ Produtos & Estoque
+Entidades que armazenam informações sobre os produtos disponíveis e seu estoque.
+
+Produtos: Inclui detalhes como categoria, descrição e preço.
+Produtos_has_Estoque: Relação que liga os produtos ao estoque disponível e sua quantidade.
+🤝 Fornecimento
+A entidade Fornecimento mapeia a relação entre fornecedores e os produtos que oferecem.
+
+Fornecedor_idFornecedor: Identificador do fornecedor.
+Produtos_idProdutos: Referência aos produtos fornecidos.
+📦 Produto por Pedido
+Essa entidade faz a relação entre produtos e pedidos, permitindo que cada pedido tenha múltiplos itens.
+
+Pedido_idPedido: Identificador do pedido.
+Produtos_idProdutos: Referência aos produtos incluídos.
+Quantidade: Quantidade de cada produto em um pedido.
+💳 Integração de Métodos de Pagamento
+A maneira mais simples de integrar métodos de pagamento ao sistema é adicionar uma coluna MetodoPagamento na tabela Pedido, permitindo registrar facilmente o tipo de pagamento utilizado, como CartaoCredito, Pix, BoletoBancario, etc.
+
+🛠️ Tecnologias Utilizadas
+Modelagem: MySQL Workbench para a criação e visualização do esquema do banco de dados.
+Banco de Dados: MySQL ou outro sistema de banco de dados relacional de sua escolha.
+🚀 Como Usar
+Importe o arquivo .mwb no MySQL Workbench para visualizar e modificar o esquema do banco de dados.
+Utilize o esquema como base para criar o banco de dados em seu sistema de e-commerce.
+Customize e expanda as funcionalidades conforme as necessidades do seu projeto.
